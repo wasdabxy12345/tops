@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>loops</title>
+</head>
+
+<body>
+    <input type="number" placeholder="enter number of loop" id="n_l">
+    <button onclick="loops(parseInt(document.getElementById('n_l').value))">submit</button>
+    <p id="op"></p>
+    <script>
+        function loops(n_l) {
+            let i = 1, op = document.getElementById('op');
+            op.innerHTML += `<span style='font-weight: bold'>while loop: </span> <br>`;
+            while (i <= n_l) {
+                op.innerHTML += `${i} <br>`;
+                i++;
+            }
+
+            op.innerHTML += `<br> <span style='font-weight: bold'>for loop: </span> <br>`;
+            for (i = 1; i <= n_l; i++) {
+                op.innerHTML += `${i} <br>`;
+            }
+
+            op.innerHTML += `<br> <span style='font-weight: bold'>do-while loop: </span> <br>`;
+            i = 1;
+            do {
+                op.innerHTML += `${i} <br>`;
+                i++;
+            } while (i <= n_l);
+        }
+    </script>
+</body>
+
+</html>

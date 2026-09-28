@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body onload="change()">
+    <img src="" alt="" id="image"><br><br><br>
+
+    <button onclick="change()">show a random image</button>
+
+    <script>
+        async function change() {
+            rnd = new Date().getTime()
+            document.getElementById('image').src = `https://picsum.photos/500?random=${rnd}`
+        }
+    </script>
+</body>
+
+</html>

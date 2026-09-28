@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="">
+        <label for="eng">English:</label><input type="number" required min="0" max="100" id="eng"><br>
+        <label for="hin">Hindi:</label><input type="number" required min="0" max="100" id="hin"><br>
+        <label for="math">Maths:</label><input type="number" required min="0" max="100" id="math"><br>
+        <button
+            onclick="return calcScore(parseInt(document.getElementById('eng').value),parseInt(document.getElementById('hin').value), parseInt(document.getElementById('math').value))">
+            submit
+        </button>
+    </form>
+    <p id="tot">Total: </p>
+    <p id="per">Percentage: </p>
+    <p id="grad">Grade: </p>
+
+    <script>
+        function calcScore(eng, hin, math) {
+            let tot = eng + hin + math, avg = (tot / 3).toFixed(2)
+            document.getElementById('tot').innerHTML = 'Total: ' + tot + '/300'
+            document.getElementById('per').innerHTML = 'Percentage: ' + avg + '%'
+            if (eng < 35 || hin < 35 || math < 35) document.getElementById.innerHTML = 'Grade: F'
+            document.getElementById('grad').innerHTML = 'Grade: ' + ((eng < 35 || hin < 35 || math < 35) ? 'F' : (avg >= 90 ? 'A' : avg >= 80 ? 'B' : avg >= 70 ? 'C' : avg >= 60 ? 'D' : 'F'))
+            if (eng < 35) document.getElementById('eng').setAttribute('style', 'background-color: red')
+            if (hin < 35) document.getElementById('hin').setAttribute('style', 'background-color: red')
+            if (math < 35) document.getElementById('math').setAttribute('style', 'background-color: red')
+            return false
+        }
+    </script>
+</body>
+
+</html>

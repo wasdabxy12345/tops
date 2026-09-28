@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // class
+        class class1 {
+            evenOdd(n) {
+                if (n % 2 == 0) console.log(`${n} is even`)
+                else console.log(`${n} is odd`)
+            }
+
+            palindrome(n) {
+                let nS = n.toString(), len = nS.length, l, r, m = Math.floor(len / 2)
+                for (l = 0, r = len - 1; l < m; l++, r--) {
+                    if (nS[l] != nS[r]) break
+                }
+                if (l != m) console.log(`${n} is not palindrome`)
+                else console.log(`${n} is palindrome`)
+            }
+        }
+
+        // single level inheritance
+        class class2 extends class1 {
+            sumOfFirstN(n) {
+                let sigma = 0
+                for (let i = 0; i <= n; i++) {
+                    sigma += i
+                }
+                console.log(`sum of first ${n} numbers = ${sigma}`)
+            }
+        }
+
+        // multi level inheritance
+        class class3 extends class2 {
+            factorial(n) {
+                let fac = 1
+                for (let i = 0; i < n; i++) {
+                    fac *= i
+                }
+                console.log(`${n}! = ${fac}`)
+            }
+        }
+
+        // hierarchy inheritance
+        class class4 extends class2 {
+            primeOrComposite(n) {
+                let c = 0
+                for (let i = 0; i < n; i++) {
+                    if (n % i == 0) c++
+                }
+                if (c == 2) console.log(`${n} is prime`)
+                else console.log(`${n} is composite`)
+            }
+        }
+
+        // polymorphism
+        class class5 {
+            func(n) {
+                if (n % 2 == 0) console.log(`${n} is even`)
+                else console.log(`${n} is odd`)
+            }
+        }
+
+        class class6 extends class5 {
+            func(n) {
+                super.func(n)
+                let fac = 1
+                for (let i = 1; i <= n; i++) {
+                    fac *= i
+                }
+                console.log(`${n}! = ${fac}`)
+            }
+        }
+
+        class class7 extends class6 {
+            func(n) {
+                super.func(n)
+                let sigma = 0
+                for (let i = 0; i <= n; i++) {
+                    sigma += i
+                }
+                console.log(`sum of first ${n} numbers = ${sigma}`)
+            }
+        }
+
+        // encapsulation
+        class class8 {
+            fun1() {
+                let a = 21;
+
+                this.a = a;
+            }
+            fun2() {
+                console.log(this.a);
+            }
+        }
+
+        // object
+        objA = new class3
+        objA.evenOdd(101)
+        objA.palindrome(515)
+        objA.sumOfFirstN(12)
+        objA.factorial(3)
+
+        objB = new class4
+        objB.evenOdd(102)
+        objB.palindrome(312)
+        objB.sumOfFirstN(21)
+        objB.primeOrComposite(5)
+
+        objC = new class7
+        objC.func(15)
+
+        objD = new class8
+        objD.fun1()
+        objD.fun2()
+    </script>
+</body>
+
+</html>

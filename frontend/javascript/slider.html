@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .main {
+            height: 500px;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <img src="./img/1.jpg" height="100%" width="100%" alt="" id="img">
+    </div>
+
+    <button onclick="prev()">Prev image</button>
+    <button onclick="next()">Next image</button>
+
+    <script>
+        let img_tag = document.getElementById('img'), current = parseInt(img_tag.src.charAt(37))
+
+        function next() {
+            if (current < 4) img_tag.src = `./img/${current + 1}.jpg`
+            else img_tag.src = "./img/1.jpg"
+        }
+
+        function prev() {
+            if (current > 1) img_tag.src = `./img/${current - 1}.jpg`
+            else img_tag.src = "./img/4.jpg"
+        }
+    </script>
+</body>
+
+</html>

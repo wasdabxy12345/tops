@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <label for="size">size:</label>
+    <input type="number" name="size" id="size"><br>
+    <label for="color">color:</label>
+    <input type="text" name="color" id="color"><br>
+    <button onclick="cssManipulation(document.getElementById('size').value, document.getElementById('color').value)">
+        apply
+    </button>
+
+    <p id="text">Hello World!</p>
+
+    <script>
+        function cssManipulation(size, color) {
+            document.getElementById('text').setAttribute('style', `font-size:${size}px; color:#${color};`)
+        }
+    </script>
+</body>
+
+</html>

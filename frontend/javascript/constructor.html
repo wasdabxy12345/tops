@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        class ConstructorEg {
+            constructor() {
+                console.log('constructor called automatically when the object of its class is created without having to call it explicitly')
+            }
+        }
+        obj1 = new ConstructorEg()
+
+        class ParameterizedConstructor {
+            constructor(a, b) {
+                console.log(a)
+                console.log(b)
+            }
+        }
+        obj2 = new ParameterizedConstructor(12, 433)
+    </script>
+</body>
+
+</html>

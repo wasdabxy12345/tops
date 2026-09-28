@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>operators</title>
+</head>
+
+<body>
+    <input type="number" placeholder="enter a" id="a">
+    <input type="number" placeholder="enter b" id="b">
+    <button onclick="operators(
+            parseInt(document.getElementById('a').value), 
+            parseInt(document.getElementById('b').value))">submit</button>
+    <p id="op"></p>
+    <script>
+        function operators(a, b) {
+            let op = document.getElementById('op');
+            // arithmatic operators
+            op.innerHTML = `<span style='font-weight: bold'>Arithmetic operators: </span> <br>`;
+            op.innerHTML += `a + b = ${a + b} <br>`;
+            op.innerHTML += `a - b = ${a - b} <br>`;
+            op.innerHTML += `a * b = ${a * b} <br>`;
+            op.innerHTML += `a / b = ${a / b} <br>`;
+            op.innerHTML += `a % b = ${a % b} <br>`;
+
+            // increment and decrement operators
+            op.innerHTML += `<br> <span style='font-weight: bold'> Increment and Decrement Operators: </span> <br>`;
+            op.innerHTML += `a++ = ${a++} <br>`; // post-increment
+            op.innerHTML += `a: ${a} <br>`; // a is now 11
+            op.innerHTML += `++a = ${++a} <br>`; // pre-increment
+            op.innerHTML += `a: ${a} <br>`; // a is now 12
+            op.innerHTML += `a-- = ${a--} <br>`; // post-decrement
+            op.innerHTML += `a: ${a} <br>`; // a is now 11
+            op.innerHTML += `--a = ${--a} <br>`; // pre-decrement
+            op.innerHTML += `a: ${a} <br>`; // a is now 10
+
+            // comparison operators
+            op.innerHTML += `<br> <span style='font-weight: bold'> Comparison Operators: </span> <br>`;
+            op.innerHTML += `a == b: ${a == b} <br>`;
+            op.innerHTML += `a != b: ${a != b} <br>`;
+            op.innerHTML += `a > b: ${a > b} <br>`;
+            op.innerHTML += `a < b: ${a < b} <br>`;
+            op.innerHTML += `a >= b: ${a >= b} <br>`;
+            op.innerHTML += `a <= b: ${a <= b} <br>`;
+
+            // logical operators
+            op.innerHTML += `<br> <span style='font-weight: bold'> Logical Operators: </span> <br>`;
+            var f = true;
+            var g = false;
+            op.innerHTML += `f && g: ${f && g} <br>`;
+            op.innerHTML += `f || g: ${f || g} <br>`;
+            op.innerHTML += `!f: ${!f} <br>`;
+
+            // assignment operators
+            op.innerHTML += `<br> <span style='font-weight: bold'> Assignment Operators: </span> <br>`;
+            a += 5; // a = a + 5
+            op.innerHTML += `a += 5: ${a} <br>`;
+            a -= 5; // a = a - 5
+            op.innerHTML += `a -= 5: ${a} <br>`;
+            a *= 5; // a = a * 5
+            op.innerHTML += `a *= 5: ${a} <br>`;
+            a /= 5; // a = a / 5
+            op.innerHTML += `a /= 5: ${a} <br>`;
+            a %= 5; // a = a % 5
+            op.innerHTML += `a %= 5: ${a} <br>`;
+
+            // bitwise operators
+            op.innerHTML += `<br> <span style='font-weight: bold'> Bitwise Operators: </span> <br>`;
+            var k = 5; // 0101 in binary
+            var l = 3; // 0011 in binary
+            op.innerHTML += `k & l: ${k & l} <br>`; // 0001 in binary
+            op.innerHTML += `k | l: ${k | l} <br>`; // 0111 in binary
+            op.innerHTML += `k ^ l: ${k ^ l} <br>`; // 0110 in binary
+            op.innerHTML += `~k: ${~k} <br>`; // 1010 in binary (two's complement)
+            op.innerHTML += `k << l: ${k << l} <br>`; // 1010 in binary
+            op.innerHTML += `k >> l: ${k >> l} <br>`; // 0010 in binary
+
+            // ternary operator
+            op.innerHTML += `<br> <span style='font-weight: bold'> Ternary Operator: </span> <br>`;
+            var j = (a > 5) ? "a is greater than 5" : "a is less than or equal to 5";
+            op.innerHTML += `${j} <br>`;
+
+            // typeof operator
+            op.innerHTML += `<br> <span style='font-weight: bold'> Typeof Operator: </span> <br>`;
+            op.innerHTML += `typeof a: ${typeof a} <br>`;
+            var n = "Hello";
+            op.innerHTML += `typeof n: ${typeof n} <br>`;
+            var o = true;
+            op.innerHTML += `typeof o: ${typeof o} <br>`;
+
+            // instanceof operator
+            op.innerHTML += `<br> <span style='font-weight: bold'> Instanceof Operator: </span> <br>`;
+            function Person(name) {
+                this.name = name;
+            }
+            var person1 = new Person("Alice");
+            op.innerHTML += `person1 instanceof Person: ${person1 instanceof Person} <br>`;
+            op.innerHTML += `person1 instanceof Object: ${person1 instanceof Object} <br>`;
+
+            // delete operator
+            op.innerHTML += `<br> <span style='font-weight: bold'> Delete Operator: </span> <br>`;
+            var p = { name: "Bob", age: 30 };
+            op.innerHTML += `Before delete: ${p.name} <br>`;
+            delete p.name;
+            op.innerHTML += `After delete: ${p.name} <br>`;
+
+            // in operator
+            op.innerHTML += `<br> <span style='font-weight: bold'> In Operator: </span> <br>`;
+            var q = { name: "Charlie", age: 25 };
+            op.innerHTML += `'name' in q: ${'name' in q} <br>`;
+            op.innerHTML += `'age' in q: ${'age' in q} <br>`;
+            op.innerHTML += `'height' in q: ${'height' in q} <br>`;
+
+            // void operator
+            op.innerHTML += `<br> <span style='font-weight: bold'> Void Operator: </span> <br>`;
+            function r() {
+                op.innerHTML += `This function returns undefined <br>`;
+            }
+            op.innerHTML += `void r(): ${void r()} <br>`;
+
+            // yield operator (used in generator functions)
+            op.innerHTML += `<br> <span style='font-weight: bold'> Yield Operator: </span> <br>`;
+            function* generator() {
+                yield 1;
+                yield 2;
+                yield 3;
+            }
+            var gen = generator();
+            op.innerHTML += `gen.next(): ${JSON.stringify(gen.next())} <br>`;
+            op.innerHTML += `gen.next(): ${JSON.stringify(gen.next())} <br>`;
+            op.innerHTML += `gen.next(): ${JSON.stringify(gen.next())} <br>`;
+            op.innerHTML += `gen.next(): ${JSON.stringify(gen.next())} <br>`;
+
+            // spread operator
+            op.innerHTML += `<br> <span style='font-weight: bold'> Spread Operator: </span> <br>`;
+            var arr1 = [1, 2, 3];
+            var arr2 = [4, 5, 6];
+            var arr3 = [...arr1, ...arr2];
+            op.innerHTML += `arr3: ${arr3} <br>`;
+
+            // rest operator
+            op.innerHTML += `<br> <span style='font-weight: bold'> Rest Operator: </span> <br>`;
+            function sum(...args) {
+                return args.reduce((acc, val) => acc + val, 0);
+            }
+            op.innerHTML += `sum(1, 2, 3, 4, 5): ${sum(1, 2, 3, 4, 5)} <br>`;
+
+            // optional chaining operator
+            op.innerHTML += `<br> <span style='font-weight: bold'> Optional Chaining Operator: </span> <br>`;
+            var obj = { a: { b: { c: 10 } } };
+            op.innerHTML += `obj?.a?.b?.c: ${obj?.a?.b?.c} <br>`;
+            op.innerHTML += `obj?.a?.d?.c: ${obj?.a?.d?.c} <br>`;
+
+            // nullish coalescing operator
+            op.innerHTML += `<br> <span style='font-weight: bold'> Nullish Coalescing Operator: </span> <br>`;
+            var x = null;
+            var y = x ?? "default value";
+            op.innerHTML += `y: ${y} <br>`;
+            var z = 0;
+            var w = z ?? "default value";
+            op.innerHTML += `w: ${w} <br>`;
+
+            // optional catch binding
+            op.innerHTML += `<br> <span style='font-weight: bold'> Optional Catch Operator: </span> <br>`;
+            try {
+                throw new Error("An error occurred!");
+            } catch {
+                op.innerHTML += `caught an error without binding it to a variable <br>`;
+            }
+
+            // logical nullish assignment operator
+            op.innerHTML += `<br> <span style='font-weight: bold'> Logical Nullish Assignment Operator: </span> <br>`;
+            var a1 = null;
+            a1 ??= "default value";
+            op.innerHTML += `a1: ${a1} <br>`;
+            var a2 = 0;
+            a2 ??= "default value";
+            op.innerHTML += `a2: ${a2} <br>`;
+
+            // logical OR assignment operator
+            op.innerHTML += `<br> <span style='font-weight: bold'> Logical OR Assignment Operator: </span> <br>`;
+            var b1 = false;
+            b1 ||= "default value";
+            op.innerHTML += `b1: ${b1} <br>`;
+            var b2 = true;
+            b2 ||= "default value";
+            op.innerHTML += `b2: ${b2} <br>`;
+        }
+    </script>
+</body>
+
+</html>

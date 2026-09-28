@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // put 3 dots before argument
+        function test(b, ...arr) {
+            let sum = 0
+            for (let a in arr) {
+                sum += arr[a]
+            }
+            return sum
+        }
+        console.log(test(1, 12, 123, 1234)) // we can have any number of parameters
+    </script>
+</body>
+
+</html>

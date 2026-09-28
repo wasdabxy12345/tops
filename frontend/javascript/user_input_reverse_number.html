@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" placeholder="input number" id="n">
+    <button onclick="rev()">submit</button>
+    <p id="reversed-number"></p>
+
+    <script>
+        function rev() {
+            let n = parseInt(document.getElementById('n').value), r = 0, l = n.toString().length;
+            while (l != 0) {
+                r += (n % 10) * 10 ** (l - 1);
+                n = Math.trunc(n / 10);
+                l--;
+            }
+            return document.getElementById('reversed-number').innerHTML = r;
+        }
+    </script>
+</body>
+
+</html>

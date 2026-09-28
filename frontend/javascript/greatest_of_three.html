@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="number" placeholder="enter a" id="a">
+    <input type="number" placeholder="enter b" id="b">
+    <input type="number" placeholder="enter c" id="c">
+    <button onclick="greatestOfThreeElseIf(
+            parseInt(document.getElementById('a').value), 
+            parseInt(document.getElementById('b').value), 
+            parseInt(document.getElementById('c').value)
+        ), greatestOfThreeNestedIf(
+            parseInt(document.getElementById('a').value), 
+            parseInt(document.getElementById('b').value), 
+            parseInt(document.getElementById('c').value)
+        )">
+        submit
+    </button>
+    <p id="op-else-if"></p>
+    <p id="op-nested-if"></p>
+    <script>
+        function greatestOfThreeElseIf(a, b, c) {
+            if (a >= b && a >= c) return document.getElementById('op-else-if').innerHTML = `a = ${a}`;
+            else if (b >= c && b >= a) return document.getElementById('op-else-if').innerHTML = `b = ${b}`;
+            else return document.getElementById('op-else-if').innerHTML = `c = ${c}`;
+        }
+
+        function greatestOfThreeNestedIf(a, b, c) {
+            if (a >= b) {
+                if (a >= c) return document.getElementById('op-nested-if').innerHTML = `a = ${a}`;
+                else return document.getElementById('op-nested-if').innerHTML = `c = ${c}`;
+            } else if (b >= c) return document.getElementById('op-nested-if').innerHTML = `b = ${b}`;
+            else return document.getElementById('op-nested-if').innerHTML = `c = ${c}`;
+        }
+    </script>
+</body>
+
+</html>

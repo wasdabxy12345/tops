@@ -1,0 +1,8 @@
+function canOrderFood(isLoggedIn, hasPaymentMethod) {
+    return isLoggedIn && hasPaymentMethod ? true : false
+}
+
+console.log(canOrderFood(true, true))
+console.log(canOrderFood(true, false))
+console.log(canOrderFood(false, true))
+console.log(canOrderFood(false, false))

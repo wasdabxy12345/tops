@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Break & Continue</title>
+</head>
+
+<body>
+    <input type="number" placeholder="enter number of loops" id="n_l">
+    <input type="number" placeholder="enter stop or skip number" id="n_b_c">
+    <button onclick="break_continue(
+            parseInt(document.getElementById('n_l').value), 
+            parseInt(document.getElementById('n_b_c').value)
+        )">
+        submit
+    </button>
+    <p id="op"></p>
+    <script>
+        function break_continue(n_l, n_b_c) {
+            let i = 1, op = document.getElementById('op');
+            op.innerHTML += (`<span style="font-weight: bold;">break loop: <br></span>`);
+            while (i <= n_l) {
+                if (i == n_b_c) break; // Exit the loop when i is 5
+                op.innerHTML += (`${i} <br>`);
+                i++;
+            }
+            op.innerHTML += (`loop ends at ${n_b_c} <br><br> <span style="font-weight: bold;">continue loop: </span> <br>`);
+            i = 1;
+            while (i <= n_l) {
+                if (i == n_b_c) {
+                    i++; // Skip the rest of the loop when j is 5
+                    continue;
+                }
+                op.innerHTML += (`${i} <br>`);
+                i++;
+            }
+            op.innerHTML += (`loop skipped at ${n_b_c}`);
+        }
+    </script>
+
+</body>
+
+</html>

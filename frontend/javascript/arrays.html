@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="number" placeholder="enter number" id="n">
+    <button onclick="addElementsToArray(parseInt(document.getElementById('n').value))">add element to array</button>
+    <button onclick="removeLastElementFromArray()">delete first element of array</button>
+    <p id="arr"></p>
+    <button onclick="arraySortAsc()">sort array in ascending order</button>
+    <p id="asc"></p>
+    <button onclick="arraySortDes()">sort array in descending order</button>
+    <p id="des"></p>
+    <button onclick="arrRev()">reverse the array</button>
+    <p id="rev"></p>
+    <button onclick="arrPalindrome()">check if the array palindrome</button>
+    <p id="palindrome"></p>
+    <input type="number" placeholder="enter number to search" id="n1">
+    <button onclick="binarySearch(parseInt(document.getElementById('n1').value))">binary search</button>
+    <p id="binSrch"></p>
+    <script>
+        let arr = [];
+
+        // add an element to the end of the array
+        function addElementsToArray(n) {
+            arr.push(n);
+            document.getElementById('arr').innerHTML = arr;
+        }
+
+        // remove first element of the array
+        function removeLastElementFromArray() {
+            arr.pop();
+            document.getElementById('arr').innerHTML = arr;
+        }
+
+        // sort array elements in ascending order
+        function arraySortAsc() {
+            let i, j, temp = 0, brr = arr;
+            for (i = 0; i < brr.length; i++) {
+                for (j = i + 1; j < brr.length; j++) {
+                    if (brr[i] > brr[j]) {
+                        temp = brr[i];
+                        brr[i] = brr[j];
+                        brr[j] = temp;
+                    }
+                }
+            }
+            document.getElementById('asc').innerHTML = `asc = ${brr}`;
+        }
+
+        // sort array elements in descending order
+        function arraySortDes() {
+            let i, j, temp = 0, brr = arr;
+            for (i = 0; i < brr.length; i++) {
+                for (j = i + 1; j < brr.length; j++) {
+                    if (brr[i] < brr[j]) {
+                        temp = brr[i];
+                        brr[i] = brr[j];
+                        brr[j] = temp;
+                    }
+                }
+            }
+            document.getElementById('des').innerHTML = `des = ${brr}`;
+        }
+
+        // reverse order of array's elements
+        function arrRev() {
+            let l = 0, r = arr.length - 1, temp, brr = arr;
+            while (l < r) {
+                temp = brr[l];
+                brr[l] = brr[r];
+                brr[r] = temp;
+                l++;
+                r--;
+            }
+            document.getElementById('rev').innerHTML = `rev = ${brr}`;
+        }
+
+        // checks if a number is palindrome or not
+        function arrPalindrome() {
+            let l = 0, r = arr.length - 1, temp;
+            document.getElementById('palindrome').innerHTML = `the array is `;
+            while (l < r) {
+                if (arr[l] != arr[r]) document.getElementById('palindrome').innerHTML += `not `;
+                l++;
+                r--;
+            }
+            document.getElementById('palindrome').innerHTML += `palindrome`;
+        }
+
+        // binary search
+        function binarySearch(n1) {
+            let l = 0, r = arr.length - 1, m = Math.trunc((l + r) / 2), ans = m;
+
+            if (n1 == arr[m]) return document.getElementById('binSrch').innerHTML = m;
+            else if (n1 < arr[m]) r = m;
+            else l = m;
+
+            while (l <= r) {
+                if (n1 == arr[l]) return document.getElementById('binSrch').innerHTML = l;
+                l++;
+            }
+
+            return document.getElementById('binSrch').innerHTML = `not found`;
+        }
+    </script>
+</body>
+
+</html>

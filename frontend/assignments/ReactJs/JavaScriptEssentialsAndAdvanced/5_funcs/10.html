@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function showMenuItem(name, price) {
+            div = document.createElement('div')
+            div.innerHTML = `name: ${name}, price: ${price}`
+            document.body.appendChild(div)
+            return div
+        }
+
+        showMenuItem('abc', 123)
+        showMenuItem('def', 456)
+        showMenuItem('ghi', 789)
+    </script>
+</body>
+
+</html>

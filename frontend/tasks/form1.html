@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .label {
+            text-align: right;
+        }
+
+        .input,
+        input,
+        select {
+            width: 82%;
+            box-sizing: border-box;
+        }
+
+        select {
+            color: #757575
+        }
+
+        select option {
+            color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="post">
+        <center>
+            <h1>Registration Form</h1>
+            <table>
+                <tr>
+                    <td class="label"><label for="id">User id:</label></td>
+                    <td class="input"><input type="text" name="id" id="id"
+                            placeholder="Required and must be of length 5 to 12" required minlength="5" maxlength="12">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="label" class="label"><label for="password">Password:</label></td>
+                    <td class="input"><input type="text" name="password" id="password"
+                            placeholder="Required and must be of length 5 to 12" required minlength="7" maxlength="12">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="label" class="label"><label for="name">Name:</label></td>
+                    <td class="input"><input type="text" name="name" id="name" placeholder="Required and alphabets only"
+                            required pattern="[a-zA-Z]+">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="label"><label for="address">Address:</label></td>
+                    <td class="input"><input type="text" name="address" id="address" placeholder="Optional" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="label"><label for="country">Country:</label></td>
+                    <td class="input">
+                        <select name="country" id="country">
+                            <option value="" disabled selected style="color: #757575;">(Please select a country)
+                            </option>
+                            <option value="a">a</option>
+                            <option value="b">b</option>
+                            <option value="c">c</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="label"><label for="zip">ZIP Code:</label></td>
+                    <td class="input"><input type="number" name="zip" id="zip"
+                            placeholder="Required. Must be numeric only." required pattern="[0-9]+"></td>
+                </tr>
+                <tr>
+                    <td class="label"><label for="email">Email:</label></td>
+                    <td class="input"><input type="email" name="email" id="email"
+                            placeholder="Required. Must be a valid email." required
+                            pattern="[a-zA-Z]\w*@[a-zA-Z]+.[a-zA-Z]+"></td>
+                </tr>
+                <tr>
+                    <td class="label"><label for="sex">Sex:</label></td>
+                    <td style="text-align: left;">
+                        <input type="radio" name="sex" id="male" style="width: 5%;"><label for="male">Male</label>
+                        <input type="radio" name="sex" id="female" style="width: 5%;"><label for="female">Female</label>
+                    </td>
+                </tr>
+            </table>
+        </center>
+    </form>
+</body>
+
+</html>

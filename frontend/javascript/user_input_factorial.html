@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="number" placeholder="input number" id="n">
+    <button onclick="fac()">submit</button>
+    <p id="op"></p>
+    <script>
+        function fac() {
+            let n = document.getElementById('n').value, fac = 1;
+            for (let i = 1; i <= n; i++) {
+                fac *= i;
+            }
+            document.getElementById('op').innerHTML = fac;
+        }
+    </script>
+</body>
+
+</html>

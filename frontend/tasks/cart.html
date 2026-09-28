@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <table>
+        <tr>
+            <td>item 1</td>
+            <td><button onclick="add(document.getElementById('quant1'))">+</button></td>
+            <td>
+                <p id="quant1">1</p>
+            </td>
+            <td><button onclick="sub(document.getElementById('quant1'))">-</button></td>
+        </tr>
+        <tr>
+            <td>item 2</td>
+            <td><button onclick="add(document.getElementById('quant2'))">+</button></td>
+            <td>
+                <p id="quant2">1</p>
+            </td>
+            <td><button onclick="sub(document.getElementById('quant2'))">-</button></td>
+        </tr>
+        <tr>
+            <td>item 3</td>
+            <td><button onclick="add(document.getElementById('quant3'))">+</button></td>
+            <td>
+                <p id="quant3">1</p>
+            </td>
+            <td><button onclick="sub(document.getElementById('quant3'))">-</button></td>
+        </tr>
+    </table>
+    <script>
+        function add(quant) {
+            quant.innerHTML = parseInt(quant.innerHTML) + 1
+        }
+        function sub(quant) {
+            if (parseInt(quant.innerHTML) != 1) quant.innerHTML = parseInt(quant.innerHTML) - 1
+        }
+    </script>
+</body>
+
+</html>

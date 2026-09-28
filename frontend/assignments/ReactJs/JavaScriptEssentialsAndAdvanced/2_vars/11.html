@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let user1 = 'Priya'
+        let user2 = user1
+
+        user1 = 'Riya'
+
+        console.log(`new user name: ${user1}\nold user name: ${user2}`)
+        // the 2nd variable's value doesn't change even though the value of the variable, whose value was assigned to it is later changed because the 2nd variable is stored at a different location than the 1st 1
+
+        let favApps1 = ['Instagram', 'Spotify']
+        let favApps2 = favApps1
+
+        favApps1.push('Zomato')
+
+        console.log(`new fav app list: ${favApps1}\nold fav list: ${favApps2}`)
+        // the 2nd array's values changes because when an array is assigned to another, both are reffering to the same addresses of the values assigned to the 1st array
+    </script>
+</body>
+
+</html>

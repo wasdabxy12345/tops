@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // validate email
+        class validateEmail {
+            fun() {
+                let email = 'example@example.1m', reg_ex = /^[a-zA-Z0-9]+@[a-zA-Z].[a-zA-Z]{2,}/
+                if (reg_ex.test(email)) console.log(`${email} is an email`)
+                else console.log(`${email} is not an email`)
+            }
+        }
+
+        // reverse an array
+        class revArr extends validateEmail {
+            fun() {
+                super.fun()
+                let a = [12, 93, 18, 92, 55], l = 0, r = a.length - 1, t
+                while (l < r) {
+                    t = a[l]
+                    a[l] = a[r]
+                    a[r] = t
+                    l++
+                    r--
+                }
+                console.log(a)
+            }
+        }
+
+        // recursion fibonaci
+        class recFib extends revArr {
+            fib(n) {
+                if (n <= 1) return n
+                return this.fib(n - 1) + this.fib(n - 2)
+            }
+
+            fun() {
+                super.fun()
+                let n = 6
+                console.log(this.fib(n))
+            }
+        }
+
+        // prime
+        class prime extends recFib {
+            fun() {
+                super.fun()
+                let n = 12, c = 0
+                for (let i = 1; i < n; i++) {
+                    if (n % i == 0) c++
+                }
+                if (c == 2) console.log(`${n} is prime`)
+                else console.log(`${n} is not prime`)
+            }
+        }
+
+        class ArrRev1 {
+            fun1() {
+                let a = [12, 56, 32, 19, 44], len = a.length, temp
+                for (let l = 0, r = len - 1; l < r; l++, r--) {
+                    temp = a[l]
+                    a[l] = a[r]
+                    a[r] = temp
+                }
+                console.log(a)
+            }
+        }
+
+        o = new prime
+        o.fun()
+        o1 = new ArrRev1
+        o1.fun1()
+    </script>
+</body>
+
+</html>
