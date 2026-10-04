@@ -1,0 +1,24 @@
+<!-- 11.
+Create a function that updates the background color of a <div id="moodbox"></div> in real-time as the user types a color name (like 'pink' or 'yellow') into an input box.<br><br><em><strong>Hint:</strong> Listen for the input event and use .style.backgroundColor.</em> -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="color" oninput="changeColor()">
+    <div id="moodbox">Hello World</div>
+
+    <script>
+        function changeColor() {
+            document.getElementById('moodbox').style.backgroundColor = document.getElementById('color').value;
+        }
+    </script>
+</body>
+
+</html>
