@@ -1,2 +1,30 @@
 <!-- 8.
-Create a 'Like' button similar to Instagram's and use addEventListener to increment and display the like count each time the button is clicked.<br><br><em><strong>Hint:</strong> Use a variable to track the count and update the button text on each click.</em> -->
+Create a 'Like' button similar to Instagram's and use addEventListener to increment and display the like count each time
+the button is clicked.<br><br><em><strong>Hint:</strong> Use a variable to track the count and update the button text on
+each click.</em> -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="btn">Like</button>
+    <p id="count"></p>
+
+    <script>
+        let l = 0;
+
+        document.getElementById('btn').addEventListener('click', countDisplay);
+
+        function countDisplay() {
+            document.getElementById('count').innerHTML = ++l;
+        }
+    </script>
+</body>
+
+</html>

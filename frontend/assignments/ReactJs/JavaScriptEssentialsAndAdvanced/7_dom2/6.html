@@ -1,2 +1,25 @@
 <!-- 6.
-Build a simple Zomato-style food order form with a dropdown for cuisine and an input for quantity — use the onchange event on the dropdown to display a message showing which cuisine was selected. -->
+Build a simple Zomato-style food order form with a dropdown for cuisine and an input for quantity — use the onchange
+event on the dropdown to display a message showing which cuisine was selected. -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="">
+        <select name="" id="cuisine"
+            onchange="alert(`you selected ${document.getElementById('qty').value} ${document.getElementById('cuisine').value}`)">
+            <option value="abc">abc</option>
+            <option value="def">def</option>
+            <option value="ghi">ghi</option>
+        </select>
+        <input type="number" name="qty" id="qty">
+    </form>
+</body>
+
+</html>

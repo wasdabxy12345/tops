@@ -1,2 +1,28 @@
 <!-- 12.
-Display the X and Y coordinates of the mouse when you click anywhere inside a div by using the event object in your click event handler.<br><br><em><strong>Hint:</strong> Use event.clientX and event.clientY to get coordinates.</em> -->
+Display the X and Y coordinates of the mouse when you click anywhere inside a div by using the event object in your
+click event handler.<br><br><em><strong>Hint:</strong> Use event.clientX and event.clientY to get coordinates.</em> -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div style="width: 500px; height: 500px; background-color: aqua;" onclick="coordinates(event)"></div>
+
+    <p id="coord"></p>
+
+    <script>
+        document.getElementById('div').addEventListener('click', coordinates(event));
+
+        function coordinates(event) {
+            document.getElementById('coord').innerHTML = `${event.clientX}, ${event.clientY}`;
+        }
+    </script>
+</body>
+
+</html>

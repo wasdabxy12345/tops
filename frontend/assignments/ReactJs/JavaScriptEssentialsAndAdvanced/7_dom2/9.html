@@ -1,2 +1,31 @@
 <!-- 9.
-Write a function addToCart that adds a product name to a visible cart section when a 'Add to Cart' button is clicked, but attach the click event using addEventListener instead of the onclick attribute.<br><br><em><strong>Hint:</strong> Use document.querySelector and addEventListener to connect the button and function.</em> -->
+Write a function addToCart that adds a product name to a visible cart section when a 'Add to Cart' button is clicked,
+but attach the click event using addEventListener instead of the onclick attribute.<br><br><em><strong>Hint:</strong>
+Use document.querySelector and addEventListener to connect the button and function.</em> -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="">
+        <input type="text" name="" id="Product">
+    </form>
+    <button id="add">Add to Cart</button>
+
+    <ul id="cart"></ul>
+
+    <script>
+        function addToCart() {
+            document.querySelector('#cart').innerHTML += (`<li>${document.querySelector('#Product').value}</li>`);
+        }
+        document.querySelector('#add').addEventListener('click', addToCart);
+    </script>
+</body>
+
+</html>
