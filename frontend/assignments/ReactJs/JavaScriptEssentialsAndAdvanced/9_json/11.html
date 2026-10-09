@@ -1,0 +1,50 @@
+<!-- 11.
+Implement a 'Clear Favorites' button on your restaurant list page that removes the saved data from localStorage using
+localStorage.removeItem() and updates the UI accordingly.<br><br><em><strong>Hint:</strong> Use
+localStorage.removeItem('yourKey') and refresh the displayed list after clearing.</em> -->
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form action="">
+      <input type="text" name="" class="restaurant" />
+      <input type="text" name="" class="restaurant" />
+      <input type="text" name="" class="restaurant" />
+      <button onclick="return addTop3();">add</button>
+    </form>
+
+    <ul id="topRestaurants"></ul>
+
+    <button onclick="clearFavorites()">Clear Favorites</button>
+
+    <script>
+      function addTop3() {
+        document.getElementById("topRestaurants").innerHTML = "";
+        let inputArr = document.querySelectorAll(".restaurant"),
+          topRestaurants = [];
+        inputArr.forEach((element) => {
+          topRestaurants.push(element.value);
+        });
+        localStorage.setItem("topRestaurants", JSON.stringify(topRestaurants));
+        let topRestaurantsFromLocalStorage = JSON.parse(
+          localStorage.getItem("topRestaurants"),
+        );
+        topRestaurantsFromLocalStorage.forEach((element) => {
+          document.getElementById("topRestaurants").innerHTML +=
+            `<li>${element}</li>`;
+        });
+        return false;
+      }
+
+      function clearFavorites() {
+        localStorage.removeItem("topRestaurants");
+        document.getElementById("topRestaurants").innerHTML = "";
+      }
+    </script>
+  </body>
+</html>

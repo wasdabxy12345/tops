@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flipkart Wishlist Simulation</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f1f3f6;
+        margin: 0;
+        padding: 20px;
+      }
+      .wishlist-container {
+        max-width: 600px;
+        margin: auto;
+        background: white;
+        padding: 20px;
+        border-radius: 4px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+      h2 {
+        color: #2874f0; /* Flipkart Blue */
+        border-bottom: 2px solid #f1f3f6;
+        padding-bottom: 10px;
+      }
+      .product-card {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 0;
+        border-bottom: 1px solid #f0f0f0;
+      }
+      .product-card:last-child {
+        border-bottom: none;
+      }
+      .product-name {
+        font-size: 16px;
+        color: #212121;
+        font-weight: 500;
+      }
+      .product-price {
+        font-size: 16px;
+        color: #388e3c; /* Flipkart Green */
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wishlist-container">
+      <h2>My Wishlist (<span id="item-count">0</span>)</h2>
+      <div id="wishlist-items">
+        <!-- Wishlist items will be rendered here dynamically -->
+      </div>
+    </div>
+
+    <script>
+      // 1. Define an array of 3 products
+      const wishlistProducts = [
+        { name: "APPLE iPhone 15 (Black, 128 GB)", price: "₹65,999" },
+        { name: "SONY WH-1000XM5 Bluetooth Headset", price: "₹29,990" },
+        { name: "NIKE Revolution 7 Running Shoes", price: "₹2,795" },
+      ];
+
+      // 2. Save the array to localStorage as 'wishlist' (must be converted to a JSON string)
+      localStorage.setItem("wishlist", JSON.stringify(wishlistProducts));
+
+      // 3. Simulate reloading the page by reading and parsing the data from localStorage
+      function loadWishlist() {
+        // Retrieve the string data and parse it back into a JavaScript array
+        const storedData = localStorage.getItem("wishlist");
+        const parsedWishlist = storedData ? JSON.parse(storedData) : [];
+
+        // Get DOM elements
+        const container = document.getElementById("wishlist-items");
+        const countSpan = document.getElementById("item-count");
+
+        // Update item count header
+        countSpan.textContent = parsedWishlist.length;
+
+        // Clear container before rendering
+        container.innerHTML = "";
+
+        // Handle empty state or render items
+        if (parsedWishlist.length === 0) {
+          container.innerHTML = "<p>Your wishlist is empty!</p>";
+          return;
+        }
+
+        // Loop through the parsed array and display each product
+        parsedWishlist.forEach((product) => {
+          const card = document.createElement("div");
+          card.className = "product-card";
+
+          card.innerHTML = `
+                    <span class="product-name">${product.name}</span>
+                    <span class="product-price">${product.price}</span>
+                `;
+
+          container.appendChild(card);
+        });
+      }
+
+      // Execute the load function on startup
+      loadWishlist();
+    </script>
+  </body>
+</html>

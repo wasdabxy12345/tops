@@ -1,0 +1,53 @@
+<!-- 9.
+Write a function getRecentSearches() that reads the 'recentSearches' item from localStorage, parses it from JSON, and
+returns the array. If nothing is saved yet, return an empty array.<br><br><em><strong>Hint:</strong> Check for null
+before parsing.</em> -->
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form action="">
+      <input type="text" name="" id="search" />
+      <button onclick="return addSearchesToLocalStorage();">search</button>
+    </form>
+
+    <button onclick="displayRecentSearches()">show all searches</button>
+    <ul id="allSearchList"></ul>
+
+    <script>
+      let allRecentSearches = [];
+
+      function addSearchesToLocalStorage() {
+        allRecentSearches.push(document.getElementById("search").value);
+        localStorage.setItem(
+          "recentSearches",
+          JSON.stringify(allRecentSearches),
+        );
+        return false;
+      }
+
+      function getRecentSearches() {
+        let storedSearches = localStorage.getItem("recentSearches");
+        if (storedSearches == null) return [];
+        return JSON.parse(storedSearches);
+      }
+
+      function displayRecentSearches() {
+        let searches = getRecentSearches();
+        if (searches.length == 0)
+          document.getElementById("allSearchList").innerHTML =
+            `<ul>no searches</ul>`;
+        else
+          searches.forEach((element) => {
+            document.getElementById("allSearchList").innerHTML +=
+              `<ul>${element}</ul>`;
+          });
+      }
+    </script>
+  </body>
+</html>

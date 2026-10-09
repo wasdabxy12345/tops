@@ -1,0 +1,43 @@
+<!-- 8.
+Build a simple web page where users can add their top 3 favorite Zomato restaurants to a list and save it to
+localStorage using localStorage.setItem(). When the page reloads, the list should automatically load from localStorage
+and display. -->
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form action="">
+      <input type="text" name="" class="restaurant" />
+      <input type="text" name="" class="restaurant" />
+      <input type="text" name="" class="restaurant" />
+      <button onclick="return addTop3();">add</button>
+    </form>
+
+    <ul id="topRestaurants"></ul>
+
+    <script>
+      function addTop3() {
+        document.getElementById("topRestaurants").innerHTML = "";
+        let inputArr = document.querySelectorAll(".restaurant"),
+          topRestaurants = [];
+        inputArr.forEach((element) => {
+          topRestaurants.push(element.value);
+        });
+        localStorage.setItem("topRestaurants", JSON.stringify(topRestaurants));
+        let topRestaurantsFromLocalStorage = JSON.parse(
+          localStorage.getItem("topRestaurants"),
+        );
+        topRestaurantsFromLocalStorage.forEach((element) => {
+          document.getElementById("topRestaurants").innerHTML +=
+            `<li>${element}</li>`;
+        });
+        return false;
+      }
+    </script>
+  </body>
+</html>

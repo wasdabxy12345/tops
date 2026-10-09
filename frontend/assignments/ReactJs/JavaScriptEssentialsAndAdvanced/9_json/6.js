@@ -5,6 +5,6 @@
 let arr = [];
 
 function saveRecentSearch(query) {
-    arr.push(query);
-    localStorage.setItem('recentSearches', JSON.stringify(arr));
+  arr.push(query);
+  localStorage.setItem("recentSearches", JSON.stringify(arr));
 }
