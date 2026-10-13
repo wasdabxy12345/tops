@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- s1 -->
+    <div>
+      <h5>
+        s1: You are building a food delivery app where each restaurant's details
+        — name, cuisine type, and minimum order value — must remain constant
+        throughout the session, but the currently selected dish should be
+        updatable as the user browses the menu.
+      </h5>
+      <h6>
+        Question: Which declaration keyword (var, let, or const) would you use
+        for each variable — the restaurant name, the minimum order value, and
+        the currently selected dish — and why? Explain how scope and
+        reassignment rules influence your choices.
+      </h6>
+      <hr />
+      <ol>
+        <li>
+          <b>name: const</b> as it must remain constant throughout the session,
+          const disables reassignments
+        </li>
+        <li>
+          <b>cuisine type: const</b> as it must remain constant throughout the
+          session, const disables reassignments
+        </li>
+        <li>
+          <b>minimum order: const</b> as it must remain constant throughout the
+          session, const disables reassignments
+        </li>
+        <li>
+          <b>currently selected dish: let</b> as its value is supposed to be
+          updatable by the user
+        </li>
+      </ol>
+      <p>
+        unlike <code>var</code>, <code>const</code>'s and <code>int</code>'s
+        scope is restricted to the block they are defined in which avoids logic
+        errors and allows using the same name outside a scope
+      </p>
+    </div>
+
+    <br /><br /><br />
+
+    <!-- s2 -->
+    <div>
+      <h5>
+        s2: You are developing the delivery fee engine for a food delivery
+        platform. Orders above Rs 500 qualify for free delivery; orders between
+        Rs 200 and Rs 500 attract a Rs 40 fee; orders below Rs 200 attract a Rs
+        70 fee. Additionally, users flagged as 'VIP' always receive free
+        delivery regardless of order amount.
+      </h5>
+      <h6>
+        Question: Write the conditional logic (using if-else or a ternary
+        operator) that determines the delivery fee. Justify whether you would
+        use strict equality (===) or loose equality (==) when checking the user
+        type, and explain why the order of your conditions matters.
+      </h6>
+      <p>
+        <code>
+          let deliveryFee = userType === 'VIP' || orderPrice > 500 ? 0 :
+          orderPrice >= 200 ? 40 : 70;
+        </code>
+        we should use strict equality (===) when checking the user type because
+        it check both, the value and the date type which avoids any potential
+        logic and security breaks. the order of the conditions matter because
+        the conditions are evaluated sequentially, so first, the conditions for
+        0 delivery check is tested, if the user type is VIP or the order price
+        is greater than 500 than the delivery fee is set to 0. if either of the
+        conditions are not satisfied than only the conditon for delivery fee 40,
+        is tested. if it is not satisfied, then it defaults to 70.
+      </p>
+    </div>
+
+    <br /><br /><br />
+
+    <!-- s3 -->
+    <div>
+      <h5>
+        s3: You are building the menu listing page for a food delivery app. All
+        available dishes are stored in a JavaScript array. You need to display
+        every dish name in the console and, separately, count how many dishes
+        are marked as vegetarian.
+      </h5>
+      <h6>
+        Question: Which loop construct would you use for each task — displaying
+        all dishes and counting vegetarian ones — and why? Explain the practical
+        difference between for-of and forEach in this context, and when you
+        would prefer one over the other.
+      </h6>
+      <hr />
+      <ul>
+        <li>
+          <b><code>for-of</code> for displaying all dishes:</b> because it
+          provides a straightforward way to access each dish object directly
+        </li>
+        <li>
+          <b><code>forEach</code> for counting vegetarian dishes:</b> because it
+          is useful when we want to perform an action on every array element
+        </li>
+      </ul>
+      <p><b>practical difference between both:</b></p>
+      <ol>
+        <li>
+          <code>for-of</code> supports <code>break</code>,
+          <code>contiune</code>, and <code>return</code> but
+          <code>forEach</code> doesn't
+        </li>
+        <li>
+          <code>for-of</code> works with <code>async</code> and
+          <code>await</code> but <code>forEach</code> doesn't
+        </li>
+        <li>
+          <code>for-of</code> works with any non-primitive data type whereas
+          <code>forEach</code> only works for <code>array</code>
+        </li>
+      </ol>
+      <p><b>prefer one over another:</b></p>
+      <ul>
+        <li>
+          <b><code>for-of</code>:</b> when we need to conditionally break out of
+          iteration, working asynchronously, or iterate over non-arrays
+        </li>
+        <li>
+          <b><code>forEach</code>:</b> when we want to chain it directly after
+          other array methods, or when we want to perform the same operation on
+          all the items in an array
+        </li>
+      </ul>
+    </div>
+
+    <br /><br /><br />
+
+    <!-- s4 -->
+    <div>
+      <h5>
+        s5: You are writing the cart module for a food delivery app. The same
+        tax calculation — 5% GST on food items and 18% GST on beverages — must
+        run in the cart preview, the checkout summary, and the order
+        confirmation screen.
+      </h5>
+      <h6>
+        Question: How would you structure this logic as a reusable function?
+        Compare function declaration, function expression, and arrow function
+        syntax — and explain which form you would choose for this shared utility
+        and why, considering hoisting and readability.
+      </h6>
+      <hr />
+      <p>
+        <code>
+          calculateGst = (isFood, price) => (isFood ? price * 1.05 : price *
+          1.18);
+        </code>
+      </p>
+    </div>
+    <script>
+      calculateGst = (isFood, price) => (isFood ? price * 1.05 : price * 1.18);
+    </script>
+  </body>
+</html>
