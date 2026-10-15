@@ -3,12 +3,12 @@
 
 import React from "react";
 
-function UserGreeting({ username }) {
+function S2Q2({ username }) {
   return (
     <div>
-      <h6>Hello, {username}!</h6>
+      <p>Hello, {username}!</p>
     </div>
   );
 }
 
-export default UserGreeting;
+export default S2Q2;

@@ -4,11 +4,17 @@
 import React from "react";
 import "react-bootstrap";
 
-function MiniProfile({ displayPicture, name, statusMessage }) {
+function S2Q4({ displayPicture, name, statusMessage }) {
   return (
     <div className="col-md-3">
-      <div className="card p-1">
-        <img src={displayPicture} alt="" />
+      <div className="card p-2">
+        <div className="ratio ratio-1x1">
+          <img
+            src={displayPicture}
+            alt=""
+            className="w-100 h-100 object-fit-cover"
+          />
+        </div>
         <h5>{name}</h5>
         <p>{statusMessage}</p>
       </div>
@@ -16,4 +22,4 @@ function MiniProfile({ displayPicture, name, statusMessage }) {
   );
 }
 
-export default MiniProfile;
+export default S2Q4;

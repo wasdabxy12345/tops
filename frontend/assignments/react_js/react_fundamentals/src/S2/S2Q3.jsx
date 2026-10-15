@@ -3,14 +3,14 @@
 
 import React, { Component } from "react";
 
-export class UserGreetingClass extends Component {
+export class S2Q3 extends Component {
   render() {
     return (
       <div>
-        <h6>Hello, {this.props.username}!</h6>{" "}
+        <p>Hello, {this.props.username}!</p>{" "}
       </div>
     );
   }
 }
 
-export default UserGreetingClass;
+export default S2Q3;
